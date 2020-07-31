@@ -64,7 +64,7 @@ predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 #Load the input image, resize it, and convert it to grayscale
 #################################
 
-image = cv2.imread("amber2.jpg")
+image = cv2.imread("exxample.jpg")
 image = imutils.resize(image, width=500)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
@@ -120,11 +120,13 @@ cv2.circle(image,center_of_right_pupil, 4, (255, 0, 255), -1)
 (x_mouth_center,y_mouth_center) = (shape[63]+shape[67])//2
 mouth_center = (x_mouth_center , y_mouth_center)
 cv2.circle(image, (x_mouth_center,y_mouth_center), 2, (255,255,0), -1)
-right_pupil_to_center_of_lips = distance(center_of_right_pupil,mouth_center)
-left_pupil_to_center_of_lips = distance(center_of_left_pupil,mouth_center)
-center_of_lips_to_chin = distance(mouth_center,shape[8])
 
-V1 = right_pupil_to_center_of_lips/center_of_lips_to_chin
+right_pupil_to_center_of_lips = center_of_right_pupil[1] - mouth_center[1]
+print(right_pupil_to_center_of_lips)
+left_pupil_to_center_of_lips = center_of_left_pupil[1] - mouth_center[1]
+center_of_lips_to_chin = mouth_center[1] - shape[8][1]
+
+V1 = abs(right_pupil_to_center_of_lips/center_of_lips_to_chin)
 golden_ratio.append( V1 )
 
 
@@ -135,21 +137,21 @@ golden_ratio.append( V1 )
 nose_at_nostrils_left = (nose_at_nostrils_x_left,shape[35][1])
 (nose_at_nostrils_x_right,_) = (shape[31]+shape[39])//2
 nose_at_nostrils_right = (nose_at_nostrils_x_right,shape[31][1])
-cv2.circle(image, nose_at_nostrils_left, 2, (255,12,98) , -1)
-cv2.circle(image, nose_at_nostrils_right, 2, (255,12,98) , -1)
+cv2.circle(image, nose_at_nostrils_left, 2, (255,255,255) , -1)
+cv2.circle(image, nose_at_nostrils_right, 2, (255,255,255) , -1)
 
-right_nose_nostrils_to_right_pupil = distance(nose_at_nostrils_right,center_of_right_pupil)
-left_nose_nostrils_to_left_pupil = distance(nose_at_nostrils_left,center_of_right_pupil)
+right_nose_nostrils_to_right_pupil = nose_at_nostrils_right[1] - center_of_right_pupil[1]
+left_nose_nostrils_to_left_pupil = nose_at_nostrils_left[1] - center_of_right_pupil[1]
 average_of_nostrilses_to_pupils = (right_nose_nostrils_to_right_pupil+left_nose_nostrils_to_left_pupil)/2
 
 chin = shape[8]
 
-right_nose_nostrils_to_chin = distance(nose_at_nostrils_right,chin)
-left_nose_nostrils_to_chin = distance(nose_at_nostrils_left,chin)
+right_nose_nostrils_to_chin = nose_at_nostrils_right[1] - chin[1]
+left_nose_nostrils_to_chin = nose_at_nostrils_left[1] - chin[1]
 average_of_nostrilses_to_chin = (right_nose_nostrils_to_chin+left_nose_nostrils_to_chin)/2
 
 
-V2 = average_of_nostrilses_to_pupils / average_of_nostrilses_to_chin
+V2 =  abs(average_of_nostrilses_to_chin /average_of_nostrilses_to_pupils)
 golden_ratio.append(V2)
 
 
@@ -165,20 +167,15 @@ cv2.circle(image, nose_flair_top_left, 2, (255,12,98) , -1)
 cv2.circle(image, nose_flair_top_right, 2, (255,12,98) , -1)
 
 
-pupil_to_flair_top_left =distance(center_of_left_pupil,nose_flair_top_left)
-pupil_to_flair_top_right =distance(center_of_right_pupil,nose_flair_top_right)
+pupil_to_flair_top = center_of_left_pupil[1] - nose_flair_top_left[1]
 
-pupil_to_flair_top_avg = (pupil_to_flair_top_left + pupil_to_flair_top_right) /2
 
-left_nose_base = shape[33]
-right_nose_base = shape[34]
+left_nose_base = shape[33][1]
 
-left_flair_to_nose_base =distance(nose_flair_top_left,left_nose_base)
-right_flair_to_nose_base =distance(nose_flair_top_right,right_nose_base)
+flair_to_nose_base = nose_flair_top_left[1] - left_nose_base
 
-avg_flair_to_nose_base = (right_flair_to_nose_base + left_flair_to_nose_base)/2
 
-V3 = pupil_to_flair_top_avg/avg_flair_to_nose_base
+V3 = abs(pupil_to_flair_top/flair_to_nose_base)
 golden_ratio.append(V3)
 # show the output image with the face detections + facial landmarks
 #cv2.imshow("Output", image)
