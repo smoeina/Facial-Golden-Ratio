@@ -155,7 +155,6 @@ golden_ratio.append(V2)
 
 #################################
 #V3: Center of pupils ,Nose flair top , Nose base
-#کج بشه ساپورت نمیشه!
 #################################
 
 nose_flair_top_left = ((shape[29]+shape[39])[0]//2 , (shape[29][1]+shape[30][1])//2)
