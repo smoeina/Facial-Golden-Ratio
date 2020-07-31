@@ -177,10 +177,52 @@ flair_to_nose_base = nose_flair_top_left[1] - left_nose_base
 
 V3 = abs(pupil_to_flair_top/flair_to_nose_base)
 golden_ratio.append(V3)
+
+
+
+#####################################################
+#V4: Top arc of eyebrows ,Top of eyes ,Bottom of eyes 
+#####################################################
+top_arc_of_eyebrows = shape[19]
+top_of_eyes = shape[38]
+bottom_of_eyes = shape[41]
+
+V4 = abs((top_arc_of_eyebrows[1] - top_of_eyes[1]) /(top_of_eyes[1] - bottom_of_eyes[1]))
+
+golden_ratio.append(V4)
+
+#######################################################
+#V5: Center of pupils ,Nose at nostrils ,Center of lips
+#######################################################
+V5 = abs(average_of_nostrilses_to_pupils / (nose_at_nostrils_right[1] - mouth_center[1]))
+
+golden_ratio.append(V5)
+
+
+#######################################################
+#V6: Top of lips ,Center of lips ,Bottom of lips ,
+#######################################################
+
+top_of_lips = shape[50]
+bottom_of_lips = shape[57]
+V6 = abs( (mouth_center[1] - bottom_of_lips[1])/(top_of_lips[1] - mouth_center[1]))
+
+golden_ratio.append(V6)
+
+#######################################################
+#V7: Nose at nostrils ,	Top of lips,Center of lips 
+#######################################################
+
+V7 = abs( (nose_at_nostrils_left[1] - top_of_lips[1])/(top_of_lips[1] - mouth_center[1]))
+
+golden_ratio.append(V7)
+
 # show the output image with the face detections + facial landmarks
 #cv2.imshow("Output", image)
-#cv2.waitKey(0)
+#cv2.waitKey(0)w
 #cv2.imwrite("result.jpg",image)
+
+
 print(golden_ratio)
 cv2.imshow("Image",image)
 cv2.waitKey(0)
