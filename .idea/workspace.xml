@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db8505a5-b693-4b74-985f-bc7803932242" name="Default Changelist" comment="" />
+    <list default="true" id="db8505a5-b693-4b74-985f-bc7803932242" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -27,9 +44,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Python.PythonApplication1">
     <configuration name="PythonApplication1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -147,6 +165,12 @@
       <workItem from="1596148446664" duration="1438000" />
       <workItem from="1596150121211" duration="48000" />
       <workItem from="1596150175051" duration="3895000" />
+      <workItem from="1596200598513" duration="293000" />
+      <workItem from="1596204193308" duration="348000" />
+      <workItem from="1596204568624" duration="930000" />
+      <workItem from="1596205838773" duration="522000" />
+      <workItem from="1596206426584" duration="2892000" />
+      <workItem from="1596209352168" duration="192000" />
     </task>
     <servers />
   </component>
@@ -178,10 +202,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596153433815" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1596150813944">
+    <state x="664" y="242" key="RollbackChangesDialog" timestamp="1596205763210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596150813944" />
+    <state x="664" y="242" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596205763210" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1596209497599">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596209497599" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1596209358819">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596209358819" />
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596150820211">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -194,6 +226,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Golden_Ratio$WITH_WEBCAM.coverage" NAME="WITH WEBCAM Coverage Results" MODIFIED="1596151399795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Golden_Ratio$PythonApplication1BU.coverage" NAME="PythonApplication1BU Coverage Results" MODIFIED="1596152949035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Golden_Ratio$PythonApplication1.coverage" NAME="PythonApplication1 Coverage Results" MODIFIED="1596153433804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Golden_Ratio$PythonApplication1.coverage" NAME="PythonApplication1 Coverage Results" MODIFIED="1596200816776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
