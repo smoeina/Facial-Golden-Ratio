@@ -3,7 +3,6 @@
 #Import Essential Libraries
 #################################
 #import age_gender_detector
-import agender_detector.detect
 import dlib
 from imutils import face_utils
 import numpy as np
@@ -78,7 +77,7 @@ image = cv2.imread("dicaprio.jpeg")
 
 #ALL ABOUT FACE
 attributes = ['age', 'gender' , 'race' , 'emotion']
-print(DeepFace.analyze("dicaprio.jpeg",attributes))
+print(DeepFace.analyze("amber.jpg",attributes))
 
 #RESIZE AND CONVERT TO GRAYSCALE IMAGE
 image = imutils.resize(image, width=512)
