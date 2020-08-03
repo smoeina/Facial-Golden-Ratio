@@ -16,6 +16,9 @@ from deepface import DeepFace
 
 LEFT_EYE_INDICES = [36, 37, 38, 39, 40, 41]
 RIGHT_EYE_INDICES = [42, 43, 44, 45, 46, 47]
+GOLDEN_VALUE = 1.61803398875
+COEFFICIENT = 2.38196601125
+
 
 
 def distance(pt1,pt2):
@@ -68,16 +71,14 @@ predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 #Load the input image, resize it, and convert it to grayscale
 #################################
 
-image = cv2.imread("example.png")
-image = cv2.imread("amber2.jpg")
-image = cv2.imread("exxample.jpg")
-image = cv2.imread("hasan.jpg")
-image = cv2.imread("hanx.jpeg")
-image = cv2.imread("dicaprio.jpeg")
+loc = "example.png"
+image = cv2.imread(loc)
 
 #ALL ABOUT FACE
 attributes = ['age', 'gender' , 'race' , 'emotion']
-print(DeepFace.analyze("amber.jpg",attributes))
+analysis = DeepFace.analyze(loc,attributes)
+
+print(analysis['age'],analysis['gender'],analysis['dominant_race'],analysis['dominant_emotion'])
 
 #RESIZE AND CONVERT TO GRAYSCALE IMAGE
 image = imutils.resize(image, width=512)
@@ -139,7 +140,7 @@ mouth_center = (x_mouth_center , y_mouth_center)
 cv2.circle(image, (x_mouth_center,y_mouth_center), 2, (255,255,0), -1)
 
 right_pupil_to_center_of_lips = center_of_right_pupil[1] - mouth_center[1]
-print(right_pupil_to_center_of_lips)
+#print(right_pupil_to_center_of_lips)
 left_pupil_to_center_of_lips = center_of_left_pupil[1] - mouth_center[1]
 center_of_lips_to_chin = mouth_center[1] - shape[8][1]
 
@@ -199,7 +200,7 @@ golden_ratio_v.append(V3)
 
 
 #####################################################
-#V4: Top arc of eyebrows ,Top of eyes ,Bottom of eyes 
+#V4: Top arc of eyebrows ,Top of eyes ,Bottom of eyes
 #####################################################
 top_arc_of_eyebrows = shape[19]
 top_of_eyes = shape[37]
@@ -237,7 +238,7 @@ V6 = abs((mouth_center[1] - bottom_of_lips[1]) / (top_of_lips[1] - mouth_center[
 golden_ratio_v.append(V6)
 
 #######################################################
-#V7: Nose at nostrils ,	Top of lips,Center of lips 
+#V7: Nose at nostrils ,	Top of lips,Center of lips
 #######################################################
 
 V7 = abs( (nose_at_nostrils_left[1] - top_of_lips[1])/(top_of_lips[1] - mouth_center[1]))
@@ -248,7 +249,7 @@ golden_ratio_v.append(V7)
 #######################################################
 #H1: Side of face ,	Inside of near eye , Opposite side of face
 #######################################################
-side_of_face = shape[1]
+side_of_face = shape[0]
 inside_of_near_eye = shape[39]
 opposite_side_of_face = shape[16]
 
@@ -283,8 +284,8 @@ golden_ratio_h.append(H3)
 inside_edge_of_eye = shape[39]
 
 #TEST
-cv2.line(image,(side_of_face[0],side_of_face[1]),(outside_edge_of_eye[0],side_of_face[1]),(255,120,255),2)
-cv2.line(image,(outside_edge_of_eye[0],outside_edge_of_eye[1]),(inside_edge_of_eye[0],outside_edge_of_eye[1]),(255,255,120),2)
+#cv2.line(image,(side_of_face[0],side_of_face[1]),(outside_edge_of_eye[0],side_of_face[1]),(255,120,255),2)
+#cv2.line(image,(outside_edge_of_eye[0],outside_edge_of_eye[1]),(inside_edge_of_eye[0],outside_edge_of_eye[1]),(255,255,120),2)
 H4 = abs((side_of_face[0] - outside_edge_of_eye[0])/(outside_edge_of_eye[0] - inside_edge_of_eye[0]))
 golden_ratio_h.append(H4)
 
@@ -331,9 +332,11 @@ golden_ratio_h.append(H7)
 #cv2.imwrite("result.jpg",image)
 
 
-print(golden_ratio_v)
-print(golden_ratio_h)
+#print(golden_ratio_v)
+#print(golden_ratio_h)
 
-print((np.mean(golden_ratio_v)+np.mean(golden_ratio_h))/2)
+#print((np.mean(golden_ratio_v)+np.mean(golden_ratio_h))/2)
+golden_ratio = golden_ratio_v+golden_ratio_h
+print("BEAUTY:",np.mean([(1 - abs(g_vh - GOLDEN_VALUE)/COEFFICIENT)*100 for g_vh in golden_ratio]))
 cv2.imshow("Image",image)
 cv2.waitKey(0)
