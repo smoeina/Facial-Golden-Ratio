@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'dana';
+	src: url(../../assets/fonts/dana-thin.eot) format('embedded-opentype'),
+	url(../../assets/fonts/dana-thin.eot) format('embedded-opentype'),
+	url(../../assets/fonts/dana-thin.woff2) format('woff2'),
+	url(../../assets/fonts/dana-thin.woff) format('woff');
+	font-weight: 10;
+	font-style: normal;
+}

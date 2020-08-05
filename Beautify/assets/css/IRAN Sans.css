@@ -1,0 +1,7 @@
+@font-face {
+	font-family: 'IRAN Sans';
+	src: url(../../assets/fonts/IRANSans-Bold.woff2) format('woff2'),
+	url(../../assets/fonts/IRANSans-Bold.woff) format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
